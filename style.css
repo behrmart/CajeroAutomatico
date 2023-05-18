@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#formulario{
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://www.bbva.com/wp-content/uploads/2019/06/Marqueex2-e1589209707940-1920x724.png);
+    background-size: 80vh;
+    background-repeat: no-repeat;
+    background-color: rgb(10, 24, 55);
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 80%;
+}
+
+input{
+    margin-top: 50px;
+    width: 200px;
+    height: 35px;
+}
+
+button{
+    margin-top: 50px;
+    background-color: darkgray;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+}
+
+.error{
+    margin-top: 15px;
+    color: red;
+    font-size: 13px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+.escondido{
+    display: none;
+}
