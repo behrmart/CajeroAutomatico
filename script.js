@@ -3,6 +3,14 @@ const formulario = document.querySelector('#formulario')
 const dbUSER = 'Mali'
 const dbPASSWORD = '123'
 
+var cuentas = [
+    { user: 'Mali', password: '123', saldo: 200 },
+    { user: 'Gera', password: '456', saldo: 290 },
+    { user: 'Maui', password: '789', saldo: 67 }
+  ];
+
+  console.log(cuentas[0].user);
+
 function mostrarError(tipo){
     let error = document.getElementById(`error${tipo}`)
     error.classList.remove('escondido')
@@ -15,23 +23,17 @@ function mostrarError(tipo){
 
 
 function validarDatos(usuario, password){
-    if(usuario === dbUSER && password === dbPASSWORD){
-        console.log('Bienvenido');
-    }
-    else if(usuario === '' && password === ''){
-        console.log('INGRESA TUS DATOS');
-        mostrarError('Datos')
-    }
-    else if(usuario != dbUSER){
-        console.log('Usuario incorrecto');
-        mostrarError('Usuario')
-    }
-    else if(password != dbPASSWORD){
-        console.log('Password incorrecto');
-        mostrarError('Password')
-    }
-    else{
-        console.log('Error, datos incorrectos');
+    
+    var nombreExiste = cuentas.some(function(cuenta) {
+         return cuenta.user === usuario });
+        //Valida que el usuario se encuentre en el array usando el metodo some() Regresa true si usuario existe
+               
+    if (nombreExiste) {
+        console.log('Usuario OK');        
+        encuentraPass = cuentas.find(function(contra) {return contra.contrasenia === password});
+        
+    } else {
+        console.log('Error, Usuario Invalido');
     }
 }
 
