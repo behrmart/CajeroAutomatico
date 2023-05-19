@@ -1,15 +1,5 @@
 const formulario = document.querySelector('#formulario')
 
-const dbUSER = 'Mali'
-const dbPASSWORD = '123'
-
-var cuentas = [
-    { user: 'Mali', password: '123', saldo: 200 },
-    { user: 'Gera', password: '456', saldo: 290 },
-    { user: 'Maui', password: '789', saldo: 67 }
-  ];
-
-  console.log(cuentas[0].user);
 
 function mostrarError(tipo){
     let error = document.getElementById(`error${tipo}`)
@@ -22,25 +12,38 @@ function mostrarError(tipo){
 }
 
 
-function validarDatos(usuario, password){
+function validateUserAndPassword(user, password) {
+    var cuentas = [
+      { user: 'Mali', password: '123', saldo: 200 },
+      { user: 'Gera', password: '456', saldo: 290 },
+      { user: 'Maui', password: '789', saldo: 67 }
+    ];
     
-    var nombreExiste = cuentas.some(function(cuenta) {
-         return cuenta.user === usuario });
-        //Valida que el usuario se encuentre en el array usando el metodo some() Regresa true si usuario existe
-               
-    if (nombreExiste) {
-        console.log('Usuario OK');        
-        encuentraPass = cuentas.find(function(contra) {return contra.contrasenia === password});
-        
-    } else {
-        console.log('Error, Usuario Invalido');
+    for (var i = 0; i < cuentas.length; i++) {
+      if (cuentas[i].user === user && cuentas[i].password === password) {
+        return true;  // User and password are valid
+      }
     }
+    
+    return false;  // User and/or password are invalid
 }
+  
 
 formulario.addEventListener('submit', (evento)=>{
-evento.preventDefault()
-let usuario = document.querySelector('#usuario').value
-let password = document.querySelector('#password').value
-validarDatos(usuario, password)
+
+    evento.preventDefault();
+
+let usuario = document.querySelector('#usuario').value;
+let password = document.querySelector('#password').value;
+
+var isValid = validateUserAndPassword(usuario, password);
+
+if (isValid) {
+    console.log('User and password are valid.');
+    window.location.href="cajero.html"; // Llama a la pagina de Cajero Automatico
+  } else {
+    console.log('Invalid user and/or password.');
+    mostrarError('Datos')
+  }
 })
 
