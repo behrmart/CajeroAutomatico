@@ -4,19 +4,19 @@
 const formDeposito = document.querySelector('#formDeposito');
 const formRetiro = document.querySelector('#formRetiro');
 
-const usuario = sessionStorage.getItem('usuario'); //El usuario es constante
-let saldoTxt = sessionStorage.getItem('saldo'); //Variable saldo Global para este JS
+const usuario = sessionStorage.getItem('usuario'); //El usuario es constante. Usa sessionStorage para pasar datos de pagina principal
+let saldoTxt = sessionStorage.getItem('saldo'); //Variable saldo Global para este JS. Viene como string de sessionStorage
 
-let saldo = parseInt(saldoTxt);
+let saldo = parseInt(saldoTxt); // Convierte a Int. Saldo debe ser tipo numerico global
 
-console.log('usuario: ' + usuario);
-console.log('saldo: ' + saldo);
+console.log('usuario: ' + usuario); //Debug
+console.log('saldo: ' + saldo); //Debug
 
 document.getElementById("bienvenido").innerHTML = 'Bienvenido ' + usuario; // Crea mensaje de bienvenida
 
 
 function controlaSaldo(saldo){     // Controla que el saldo sea mayor que $9 y menor que $990
-    console.log('controlaSaldo: ' + saldo);
+    console.log('controlaSaldo: ' + saldo); //Debug
     if (saldo >= 10 && saldo <= 990 ) {
         return true;
     } else {
@@ -24,9 +24,9 @@ function controlaSaldo(saldo){     // Controla que el saldo sea mayor que $9 y m
     }
 }
 
-function consultarSaldo() {
+function consultarSaldo() { //Despliega Saldo
     displaySaldo = document.getElementById("despliegaSaldo");
-    console.log('consultaSaldo: ' + saldo)
+    console.log('consultaSaldo: ' + saldo) //Debug
     displaySaldo.innerHTML = 'Tu saldo es: ' + saldo;
     displaySaldo.classList.remove('escondido');
 }
@@ -37,7 +37,7 @@ formDeposito.addEventListener('submit', (evento)=>{
     evento.preventDefault();
 
     let cantidad = document.querySelector('#depositoCant').value;
-    console.log('Deposito: '+ cantidad);
+    console.log('Deposito: '+ cantidad); //Debug
     let nuevoSaldo = document.querySelector('#nuevoSaldo');
     let saldoPaso = parseInt(cantidad) + saldo;
     
@@ -57,11 +57,11 @@ formRetiro.addEventListener('submit', (evento)=>{
     evento.preventDefault();
 
     let cantidad = document.querySelector('#retiroCant').value;
-    console.log('Retiro: ' + cantidad);
+    console.log('Retiro: ' + cantidad); //Debug
     nuevoSaldoRetiro = document.querySelector('#nuevoSaldoRetiro');
     
     let saldoPaso = saldo - parseInt(cantidad);
-    console.log('saldoPaso Retiro: ' + saldoPaso);
+    console.log('saldoPaso Retiro: ' + saldoPaso); //Debug
 
     if (controlaSaldo(saldoPaso)){
         saldo = saldoPaso;
