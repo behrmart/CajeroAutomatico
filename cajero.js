@@ -1,7 +1,8 @@
 // Cajero Automático
 // JavaScript code for cajero screen
 
-const formDeposito = document.querySelector('#formDeposito')
+const formDeposito = document.querySelector('#formDeposito');
+const formRetiro = document.querySelector('#formRetiro');
 
 const usuario = sessionStorage.getItem('usuario'); //El usuario es constante
 let saldo = sessionStorage.getItem('saldo'); //Variable saldo Global para este JS
@@ -31,6 +32,17 @@ formDeposito.addEventListener('submit', (evento)=>{
     nuevoSaldo.classList.remove('escondido');
 })
 
+formRetiro.addEventListener('submit', (evento)=>{
+
+    evento.preventDefault();
+
+    let cantidad = document.querySelector('#retiroCant').value;
+    console.log(cantidad);
+    nuevoSaldoRetiro = document.querySelector('#nuevoSaldoRetiro');
+    saldo = parseInt(saldo) - parseInt(cantidad);
+    nuevoSaldoRetiro.innerHTML = 'Tu nuevo saldo es: ' + saldo;
+    nuevoSaldoRetiro.classList.remove('escondido');
+})
 
 /* Al seleccionar consultar saldo, debe mostrar en pantalla el saldo actual de la cuenta
 Al seleccionar ingresar monto, el usuario debe escribir el monto a ingresar. Al ingresar el monto, debe mostrarle al usuario el monto ingresado y el nuevo saldo total.
