@@ -24,6 +24,21 @@ body{
     height: 80%;
 }
 
+.heroCajero{
+    color: azure;
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://www.bbva.com/wp-content/uploads/2019/06/Marqueex2-e1589209707940-1920x724.png);
+    background-size: 80vh;
+    background-repeat: no-repeat;
+    background-color: rgb(10, 24, 55);
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 80%;
+    padding: 25px 50px 75px 100px;
+}
+
 input{
     margin-top: 50px;
     width: 200px;
@@ -47,4 +62,14 @@ button{
 
 .escondido{
     display: none;
+}
+
+.saldotext {
+   background-color: teal;
+   padding: 25px 25px 25px 25px;
+}
+
+.deposito {
+    background-color: yellowgreen;
+   padding: 25px 25px 25px 25px;
 }

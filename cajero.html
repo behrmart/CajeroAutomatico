@@ -4,9 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Cajero Automático</title>
 </head>
 <body>
-    <h1> Cajero automatico</h1>
+    <div class="heroCajero">
+        <h1> Cajero automático</h1>
+        <div class"bienvenido">
+            <h2 id="bienvenido"></h2>    
+        </div>
+    
+        <div class="consultarSaldo">
+            <button type="submit" onclick="consultarSaldo()">Consultar Saldo</button>
+            <h3 class="saldotext escondido" id ="despliegaSaldo"></h3>
+        </div>
+    
+    
+            
+        <div class="deposito">
+            <h3>Hacer un Deposito</h3>
+            <form id="formDeposito">
+                <input id="depositoCant" type="number" placeholder="Cantidad a Depositar">
+                <button type="submit" onclick="calculaDeposito()">Ingresar Deposito</button>
+                <h3 class="saldotext escondido" id="nuevoSaldo"></h3>
+            </form>
+        </div>
+    
+        <div class="Retiro">
+            <h3>Retiro</h3>
+        </div>
+
+    </div>
+
+    
+
+
+<!-- Al seleccionar consultar saldo, debe mostrar en pantalla el saldo actual de la cuenta
+Al seleccionar ingresar monto, el usuario debe escribir el monto a ingresar. Al ingresar el monto, debe mostrarle al usuario el monto ingresado y el nuevo saldo total.
+Al seleccionar retirar monto, el usuario debe escribir el monto a retirar. Al retirar el monto, debe mostrarle al usuario el monto retirado y el nuevo saldo total.
+
+Como regla de negocio, una cuenta no debe de tener más de $990 y menos de $10. Es necesario hacer las validaciones pertinentes para que no se rompa esta regla de negocio.
+About -->
+<script src="cajero.js"></script>
+
 </body>
 </html>

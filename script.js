@@ -1,3 +1,8 @@
+// Cajero Automático.
+// Amelia Fernandez
+// Main screen user and password validation
+
+
 const formulario = document.querySelector('#formulario')
 
 
@@ -14,18 +19,18 @@ function mostrarError(tipo){
 
 function validateUserAndPassword(user, password) {
     var cuentas = [
-      { user: 'Mali', password: '123', saldo: 200 },
-      { user: 'Gera', password: '456', saldo: 290 },
-      { user: 'Maui', password: '789', saldo: 67 }
+      { user: 'Meli', password: '123', saldo: 300 },
+      { user: 'Behr', password: '456', saldo: 290 },
+      { user: 'Ariel', password: '789', saldo: 67 }
     ];
     
     for (var i = 0; i < cuentas.length; i++) {
       if (cuentas[i].user === user && cuentas[i].password === password) {
-        return true;  // User and password are valid
+        return [true, cuentas[i].saldo];  // User and password are valid
       }
     }
     
-    return false;  // User and/or password are invalid
+    return [false, null];  // User and/or password are invalid
 }
   
 
@@ -38,8 +43,11 @@ let password = document.querySelector('#password').value;
 
 var isValid = validateUserAndPassword(usuario, password);
 
-if (isValid) {
+if (isValid[0]) {
     console.log('User and password are valid.');
+    sessionStorage.setItem('usuario', usuario);
+    sessionStorage.setItem('password', password);
+    sessionStorage.setItem('saldo', isValid[1])
     window.location.href="cajero.html"; // Llama a la pagina de Cajero Automatico
   } else {
     console.log('Invalid user and/or password.');
