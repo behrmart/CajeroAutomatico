@@ -39,6 +39,14 @@ body{
     padding: 25px 50px 75px 100px;
 }
 
+
+.operaciones {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
 input{
     margin-top: 50px;
     width: 200px;
